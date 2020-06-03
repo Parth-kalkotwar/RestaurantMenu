@@ -14,6 +14,7 @@ dishRouter
     res.sendStatus(200);
   })
   .get(cors.cors, (req, res, next) => {
+    console.log("Dishes");
     Dishes.find({})
       .then(
         (dishes) => {
@@ -28,7 +29,7 @@ dishRouter
       });
   })
   .post(
-    cors.corsOptions,
+    cors.cors,
     authenticate.verifyUser,
     authenticate.verifyAdmin,
     (req, res, next) => {
@@ -157,7 +158,7 @@ dishRouter
       .catch((err) => next(err));
   })
   .post(
-    cors.corsOptions,
+    cors.cors,
     authenticate.verifyUser,
     authenticate.verifyAdmin,
     (req, res, next) => {

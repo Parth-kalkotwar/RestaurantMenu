@@ -11,6 +11,7 @@ var fileStore = require("session-file-store")(session);
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var dishRouter = require("./routes/dishRouter");
+var favoritesRouter = require("./routes/favoritesRouter");
 const mongoose = require("mongoose");
 const dishes = require("./models/dishSchema");
 const imageRouter = require("./routes/imageUpload");
@@ -58,6 +59,7 @@ app.use("/users", usersRouter);
 
 app.use("/dishes", dishRouter);
 app.use("/imageUpload", imageRouter);
+app.use("/favorites", favoritesRouter);
 
 connect.then(
   (db) => {
